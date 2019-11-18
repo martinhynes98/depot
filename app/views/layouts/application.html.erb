@@ -18,6 +18,12 @@
       <li><a href="/questions">Questions</a></li>
       <li><a href="/news">News</a></li>
       <li><a href="/contact">Contact</a></li>
+	  <p style="color:green">Date/Time: <span id="datetime"></span></p>
+
+	  <script>
+	  var dt = new Date();
+	  document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+	  </script>
     </ul>
   </nav>
       <%= image_tag 'logo.png', alt: 'The Pragmatic Bookshelf' %>
