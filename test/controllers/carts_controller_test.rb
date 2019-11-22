@@ -17,6 +17,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cart" do
     assert_difference('Cart.count') do
+	  session[:cart_id] = @cart.id
       post carts_url, params: { cart: {  } }
     end
 
@@ -39,10 +40,12 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy cart" do
+    session[:cart_id] = @cart.id
     assert_difference('Cart.count', -1) do
+	  
       delete cart_url(@cart)
     end
 
-    assert_redirected_to carts_url
+    assert_redirected_to store_url
   end
 end
