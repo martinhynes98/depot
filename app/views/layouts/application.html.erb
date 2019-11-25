@@ -19,7 +19,16 @@
       <li><a href="/news">News</a></li>
       <li><a href="/contact">Contact</a></li>
 	  <p style="color:green">Date/Time: <span id="datetime"></span></p>
-
+      <% if session[:user_id] %>
+		<nav class="logged_in_nav">
+		  <ul>
+		    <li><%= link_to 'Orders',   orders_path   %></li>
+		    <li><%= link_to 'Products', products_path %></li>
+		    <li><%= link_to 'Users',    users_path    %></li>
+		    <li><%= button_to 'Logout', logout_path, method: :delete   %></li>
+		  </ul>
+		</nav>
+	  <% end %>
 	  <script>
 	  var dt = new Date();
 	  document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
