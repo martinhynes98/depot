@@ -6,9 +6,9 @@
     <td colspan="2">Total</td>
     <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
   </tr>
-  <tr>
+  <div class="actions">
     <%= button_to 'Empty cart', @cart, method: :delete,
       data: { confirm: 'Are you sure?' } %>
-	<%= button_to 'Checkout', @cart, method: :delete%>
-  </tr>
+	<%= button_to 'Checkout', new_order_path, method: :get, class: "checkout"%>
+  </div>
 </table>
